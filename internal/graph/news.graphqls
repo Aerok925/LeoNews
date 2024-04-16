@@ -1,0 +1,35 @@
+type News {
+    id: ID!
+    title: String!
+    description: String!
+    img: String
+    create_at: Time!
+}
+
+input NewNews {
+    title: String!
+    description: String!
+    img: String
+}
+
+scalar Time
+scalar Void
+
+type GetNews {
+    news: [News!]
+}
+
+type Query {
+    getNews(
+        id: ID
+    ): [News!]
+}
+
+type Mutation {
+    createNews(input: NewNews!): News!
+}
+
+type Subscription {
+    newsPublished: News!
+}
+

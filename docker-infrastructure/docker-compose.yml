@@ -1,0 +1,38 @@
+---
+version: "3.6"
+
+
+services:
+  postgres:
+    image: postgres:13.3
+    env_file:
+      - env/postgres.env
+    ports:
+      - "5432:5432"
+
+
+
+
+
+#  golang:
+#    image: git.valor.bet:5050/bet/api:${APPLICATION_BRANCH:-main}
+#    build:
+#      context: ..
+#      dockerfile: _docker-infrastructure/docker/golang/Dockerfile
+#    restart: unless-stopped
+#    container_name: ${COMPOSE_PROJECT_NAME}.go
+#    environment:
+#      - REDIS_HOST=${REDIS_HOST}
+#      - REDIS_PORT=${REDIS_PORT}
+#      - REDIS_USER=${REDIS_USER}
+#      - REDIS_PASS=${REDIS_PASS}
+#      - REDIS_DB=${REDIS_DB}
+#    env_file:
+#      - application.env
+#    networks:
+#      - frontend
+#      - backend
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      - ../:/app/
